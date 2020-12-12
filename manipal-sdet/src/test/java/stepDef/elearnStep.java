@@ -2,6 +2,7 @@ package stepDef;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -17,7 +18,7 @@ import pageObjects.mailPage;
 public class elearnStep {
 	
 	   //System.setProperty("webdriver.chrome.driver", "src\\test\\resources\\drivers\\chromedriver.exe");
-		 WebDriver driver = new ChromeDriver();
+		static  WebDriver driver = new ChromeDriver();
 	 	 homePage h = new homePage(driver);
 	 	 Registerpage R = new Registerpage(driver);
 	 	 RegisteredVerify RV = new RegisteredVerify(driver);
@@ -71,6 +72,7 @@ public class elearnStep {
 
 	@Given("^Click on homePage$")
 	public void click_on_homePage() throws Throwable {
+		System.out.println("Scenario2 starts here");
 		Thread.sleep(6000);
 	 RV.clickHome();
 	}
@@ -87,10 +89,13 @@ public class elearnStep {
 	}
 
 	@Then("^enter \"([^\"]*)\" mail id , \"([^\"]*)\" and \"([^\"]*)\"$")
-	public void enter_mail_id_and(String mailid, String subject, String m) throws Throwable {
-	  	   M.Subjectline(subject);
-	   M.MesaageBox(m);
-	   M.SendTo(mailid);
+	public void enter_mail_id_and(String reciever, String subject, String Message) throws Throwable {
+		 M.SendTo(reciever);
+		M.Subjectline(subject);
+		driver.findElement(By.xpath("/html/body")).sendKeys("Sample Test");
+		 System.out.println("message is written");
+	   
+	  
 	}
 
 	@Then("^click send button$")
@@ -100,9 +105,11 @@ public class elearnStep {
 
 	@Then("^Verify acknowledgement shown$")
 	public void verify_acknowledgement_shown() throws Throwable {
-	  String Actstring = M.getAckText();
-	  String Expected = "The message has been sent to naveen naveen (naveen)";
-	  Assert.assertEquals(Actstring, Expected);
+		String Actual = M.getAckText();
+		System.out.println(Actual);
+		String Expected ="The message has been sent to naveen naveen (naveen)";
+		Assert.assertEquals(Actual , Expected);
+		System.out.println("acknowldgemnt is verified");
 	  
 	}
 

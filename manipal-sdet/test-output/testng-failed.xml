@@ -6,7 +6,6 @@
       <class name="RunnerPack.elearnRun">
         <methods>
           <include name="tearDownClass"/>
-          <include name="scenario" invocation-numbers="0"/>
           <include name="feature"/>
           <include name="setUpClass"/>
         </methods>

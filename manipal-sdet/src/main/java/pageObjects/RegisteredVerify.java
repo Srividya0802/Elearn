@@ -32,7 +32,7 @@ public class RegisteredVerify {
 	private WebElement text;
     
    
-   @FindBy(xpath = "//*[@id='navbar']/ul[1]/li[1]/a")
+   @FindBy(xpath = "//body/main/header/nav/div/div[2]/ul[1]/li[1]/a")
 	private WebElement home ;
     
     public boolean VerifyText(String S) {

@@ -10,8 +10,8 @@ To register a new user and verify
     And verify the user is registered
     Examples:
     | firstname    | lastname   | email                       | uname       | pass          |  conf_pass      |
-    | Jakes        | Johns      | jake125.john@gmail.com      | jake22      |	v1dya@01      |	v1dya@01        |
-    
+    | Jakes        | Johns      | jake125.john@gmail.com      | jake44      |	v1dya@01      |	v1dya@01        |
+   
     
 Scenario Outline: Send mail and validate message is sent 
     Given Click on homePage
@@ -21,6 +21,6 @@ Scenario Outline: Send mail and validate message is sent
     Then click send button
     And Verify acknowledgement shown
     Examples:
-      | reciever   | subject   | Message            |
-      | naveen     | hi        | sample mail        | 
+      | reciever  | subject   | Message     |
+      | naveen    | hi        | sample mail | 
    
